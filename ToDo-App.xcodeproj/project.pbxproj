@@ -11,6 +11,8 @@
 		4490F3BD28FDAE14009FAEBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4490F3BC28FDAE14009FAEBC /* ContentView.swift */; };
 		4490F3BF28FDAE16009FAEBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4490F3BE28FDAE16009FAEBC /* Assets.xcassets */; };
 		4490F3C228FDAE16009FAEBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4490F3C128FDAE16009FAEBC /* Preview Assets.xcassets */; };
+		4490F3CA28FDAF08009FAEBC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4490F3C928FDAF08009FAEBC /* Realm */; };
+		4490F3CC28FDAF08009FAEBC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4490F3CB28FDAF08009FAEBC /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4490F3CC28FDAF08009FAEBC /* RealmSwift in Frameworks */,
+				4490F3CA28FDAF08009FAEBC /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +87,10 @@
 			dependencies = (
 			);
 			name = "ToDo-App";
+			packageProductDependencies = (
+				4490F3C928FDAF08009FAEBC /* Realm */,
+				4490F3CB28FDAF08009FAEBC /* RealmSwift */,
+			);
 			productName = "ToDo-App";
 			productReference = 4490F3B728FDAE14009FAEBC /* ToDo-App.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = 4490F3AE28FDAE14009FAEBC;
+			packageReferences = (
+				4490F3C828FDAF08009FAEBC /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 4490F3B828FDAE14009FAEBC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -279,7 +290,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "mr.ToDo-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -308,7 +319,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "mr.ToDo-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -339,6 +350,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4490F3C828FDAF08009FAEBC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4490F3C928FDAF08009FAEBC /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4490F3C828FDAF08009FAEBC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		4490F3CB28FDAF08009FAEBC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4490F3C828FDAF08009FAEBC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4490F3AF28FDAE14009FAEBC /* Project object */;
 }
