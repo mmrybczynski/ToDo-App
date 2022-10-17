@@ -15,22 +15,25 @@ struct TaskRow: View {
     var body: some View {
         HStack {
             Image(systemName: completed ? "checkmark.circle" : "circle")
+                .foregroundColor(.black)
                 .padding()
             
             
             if note.isEmpty {
                 Text(title)
+                    .foregroundColor(.black)
                     .font(.system(size: 19, weight: .bold))
             } else {
                 VStack(alignment: .leading) {
                     Text(title)
+                        .foregroundColor(.black)
                         .font(.system(size: 19, weight: .bold))
 
                     Text(note)
+                        .foregroundColor(.black)
                         .font(.system(size: 12, weight: .light))
                        
                 }
-                .padding()
             }
             
             Spacer()

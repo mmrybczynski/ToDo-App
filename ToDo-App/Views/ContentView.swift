@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var realmManager = RealmManager()
     @State private var showAddTaskView = false
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             TaskView()
+                .environmentObject(realmManager)
             
             AddButton()
                 .padding()
@@ -23,7 +25,7 @@ struct ContentView: View {
         }
         .fullScreenCover(isPresented: $showAddTaskView, content: {
             AddTaskView()
-                //.environmentObject(realmManager)
+                .environmentObject(realmManager)
         })
     }
 }

@@ -18,6 +18,7 @@
 		4490F3D528FDB5FF009FAEBC /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4490F3D428FDB5FF009FAEBC /* AddButton.swift */; };
 		4490F3D728FDB73D009FAEBC /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4490F3D628FDB73D009FAEBC /* AddTaskView.swift */; };
 		4490F3D928FDBB6B009FAEBC /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4490F3D828FDBB6B009FAEBC /* RealmManager.swift */; };
+		4490F3DB28FDBBA3009FAEBC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4490F3DA28FDBBA3009FAEBC /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		4490F3D428FDB5FF009FAEBC /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		4490F3D628FDB73D009FAEBC /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		4490F3D828FDBB6B009FAEBC /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		4490F3DA28FDBBA3009FAEBC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				4490F3D828FDBB6B009FAEBC /* RealmManager.swift */,
+				4490F3DA28FDBBA3009FAEBC /* Task.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4490F3DB28FDBBA3009FAEBC /* Task.swift in Sources */,
 				4490F3D128FDAF9B009FAEBC /* TaskView.swift in Sources */,
 				4490F3BD28FDAE14009FAEBC /* ContentView.swift in Sources */,
 				4490F3BB28FDAE14009FAEBC /* ToDo_AppApp.swift in Sources */,
@@ -330,6 +334,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,6 +364,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddTaskView: View {
     
+    @EnvironmentObject var realmManager: RealmManager
     @State var title: String = ""
     @State var note: String = ""
     @Environment(\.dismiss) var dismiss
@@ -59,6 +60,10 @@ struct AddTaskView: View {
                     .padding(.horizontal)
                 
                 Button {
+                    if !title.isEmpty {
+                        realmManager.addTask(taskTitle: title, taskNote: note)
+                        print("Task added")
+                    }
                     dismiss()
                 } label: {
                     Text("Add task")
@@ -68,6 +73,7 @@ struct AddTaskView: View {
                         .cornerRadius(20)
                         .foregroundColor(.white)
                         .padding(.top, 40)
+                        .padding(.bottom)
                     
                 }
 

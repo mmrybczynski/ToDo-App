@@ -9,6 +9,12 @@ import SwiftUI
 
 struct TaskView: View {
     
+    @EnvironmentObject var realmManager: RealmManager
+    @State var showCompleted: Bool = false
+    
+    init() {
+        UITableView.appearance().backgroundColor = .clear
+    }
     
     var body: some View {
         
@@ -25,30 +31,86 @@ struct TaskView: View {
                     
                     Spacer()
                     
-                    Text("Show completed")
+                    Text(!showCompleted ? "Show completed" : "Hide completed")
                         .font(.caption)
                         .padding()
                         .foregroundColor(.white)
+                        .onTapGesture {
+                            withAnimation(.linear(duration: 0.2)) {
+                                showCompleted.toggle()
+                            }
+                            
+                        }
                 }
                 
                 List {
-                    Text("Hello")
+                    
+                    if showCompleted {
+                        taskViewSectionShowCompleted
+                    } else {
+                        taskViewSectionHideCompleted
+                    }
                     
                 }
-                .scrollContentBackground(.hidden)
-                //.listRowBackground((index  % 2 == 0) ? Color(.systemBlue) : Color(.yellow))
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
         }
-        
-        
     }
 }
 
 struct TaskView_Previews: PreviewProvider {
     static var previews: some View {
         TaskView()
+            .environmentObject(RealmManager())
+    }
+}
+
+extension TaskView {
+    private var taskViewSectionShowCompleted: some View {
+        ForEach(realmManager.tasks, id: \.id) { task in
+            
+            if task.completed || !task.completed {
+                if !task.isInvalidated {
+                    
+                    TaskRow(title: task.title, note: task.note ,completed: task.completed)
+                        .onTapGesture {
+                            realmManager.updateTask(id: task.id, completed: !task.completed)
+                        }
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                realmManager.deleteTask(id: task.id)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
+                }
+            }
+        }
+        .listRowSeparator(.hidden)
+    }
+    
+    private var taskViewSectionHideCompleted: some View {
+        ForEach(realmManager.tasks, id: \.id) { task in
+            
+            if !task.completed {
+                if !task.isInvalidated {
+                    
+                    TaskRow(title: task.title, note: task.note ,completed: task.completed)
+                        .onTapGesture {
+                            realmManager.updateTask(id: task.id, completed: !task.completed)
+                        }
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                realmManager.deleteTask(id: task.id)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
+                }
+            }
+        }
+        .listRowSeparator(.hidden)
     }
 }
