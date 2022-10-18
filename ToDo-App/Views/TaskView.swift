@@ -7,14 +7,21 @@
 
 import SwiftUI
 
+extension UICollectionReusableView {
+    override open var backgroundColor: UIColor? {
+        get { .clear }
+        set { }
+    }
+}
+
 struct TaskView: View {
+    
+    init() {
+        UICollectionView.appearance().backgroundColor = .clear
+    }
     
     @EnvironmentObject var realmManager: RealmManager
     @State var showCompleted: Bool = false
-    
-    init() {
-        UITableView.appearance().backgroundColor = .clear
-    }
     
     var body: some View {
         
@@ -89,6 +96,7 @@ extension TaskView {
             }
         }
         .listRowSeparator(.hidden)
+        .listRowBackground(Color.white.opacity(0.3))
     }
     
     private var taskViewSectionHideCompleted: some View {
